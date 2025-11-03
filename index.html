@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prosta strona — przykładowa</title>
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --accent:#3b82f6;
+      --muted:#64748b;
+      --radius:12px;
+      --maxw:900px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; background:var(--bg); color:#0f172a; -webkit-font-smoothing:antialiased}
+
+    .container{max-width:var(--maxw); margin:36px auto; padding:20px}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav a{margin-left:14px;text-decoration:none;color:var(--muted);font-weight:600}
+    nav a.primary{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px}
+
+    .hero{display:grid;grid-template-columns:1fr;gap:20px;margin-top:28px;align-items:center}
+    .hero-card{background:var(--card);border-radius:var(--radius);padding:28px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+    .big-title{font-size:28px;margin:0 0 8px}
+    .subtitle{margin:0;color:var(--muted)}
+    .cta{display:inline-block;margin-top:14px;padding:10px 16px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:700}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .feature{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 4px 12px rgba(2,6,23,0.04)}
+    .feature h3{margin:0 0 8px;font-size:16px}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    footer{margin-top:28px;padding:18px;text-align:center;color:var(--muted)}
+
+    /* responsywność */
+    @media (max-width:880px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .big-title{font-size:22px}
+    }
+    @media (max-width:560px){
+      header{flex-direction:column;align-items:flex-start}
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="mark">PS</div>
+        <div>
+          <strong>ProstaStrona</strong><br>
+          <small style="color:var(--muted)">HTML • CSS • gotowa do edycji</small>
+        </div>
+      </div>
+      <nav>
+        <a href="#features">Funkcje</a>
+        <a href="#about">O stronie</a>
+        <a href="#" class="primary">Pobierz</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <div class="hero-card">
+        <h1 class="big-title">Prosta, elegancka strona startowa</h1>
+        <p class="subtitle">Gotowy szablon HTML + CSS. Możesz go skopiować, edytować i użyć jako punkt wyjścia do swojego projektu.</p>
+        <a class="cta" href="#features">Zobacz więcej</a>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="hero-card">
+          <h3 style="margin:0">Szybka edycja</h3>
+          <p style="margin:6px 0 0;color:var(--muted)">Wszystko w jednym pliku — wystarczy zmienić tekst i kolory.</p>
+        </div>
+        <div class="hero-card">
+          <h3 style="margin:0">Responsywna</h3>
+          <p style="margin:6px 0 0;color:var(--muted)">Dobrze wygląda na telefonie i na komputerze.</p>
+        </div>
+      </div>
+    </main>
+
+    <section id="features" class="grid" aria-label="Funkcje">
+      <div class="feature">
+        <h3>Prosty layout</h3>
+        <p>Intuicyjny układ z nagłówkiem, sekcją główną i stopką.</p>
+      </div>
+      <div class="feature">
+        <h3>Estetyka</h3>
+        <p>Nowoczesne cienie, zaokrąglone rogi i czytelna typografia.</p>
+      </div>
+      <div class="feature">
+        <h3>Gotowe klasy</h3>
+        <p>Kilka klas CSS, które możesz szybko podmienić lub rozbudować.</p>
+      </div>
+    </section>
+
+    <section id="about" style="margin-top:20px">
+      <div class="hero-card">
+        <h2 style="margin-top:0">O tej stronie</h2>
+        <p style="color:var(--muted)">To minimalny przykład, który ma Ci pomóc rozpocząć pracę nad własnym projektem. Jeśli chcesz, mogę dodać formularz kontaktowy, animacje, albo wersję z CSS Grid / Flexbox w inny sposób.</p>
+      </div>
+    </section>
+
+    <footer>
+      © " + new Date().getFullYear() + " ProstaStrona — zbudowana przy pomocy HTML/CSS
+    </footer>
+  </div>
+
+  <script>
+    // Mały skrypt do ustawienia aktualnego roku w stopce (jeśli chcesz edytować bez JS, wpisz rok ręcznie)
+    (function(){
+      try{
+        var footer = document.querySelector('footer');
+        if(footer) footer.innerHTML = '© ' + new Date().getFullYear() + ' ProstaStrona — zbudowana przy pomocy HTML/CSS';
+      }catch(e){/* ignore */}
+    })();
+  </script>
+</body>
+</html>
